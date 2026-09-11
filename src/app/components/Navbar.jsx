@@ -38,15 +38,42 @@ export default function Navbar() {
         scrolled ? "shadow-sm shadow-black/5" : ""
       }`}
     >
+      <div className="h-8 overflow-hidden bg-[#1a1f71]">
+        <div className="floating-text-track flex h-full items-center whitespace-nowrap text-[11px] font-medium tracking-wide text-white/90 sm:text-xs">
+          <span className="floating-text-group inline-flex items-center gap-10 px-6">
+            <span>Kingdom Women And Youth Empowerment Foundation</span>
+            <span className="text-brand-gold-soft">•</span>
+            <span>Empowering communities through skills acquisition across Nigeria</span>
+            <span className="text-brand-gold-soft">•</span>
+            <span>Volunteer · Donate · Partner with us today</span>
+            <span className="text-brand-gold-soft">•</span>
+            <span>Jos South, Plateau State · info@kwayefoundation.org</span>
+            <span className="text-brand-gold-soft">•</span>
+          </span>
+          <span
+            className="floating-text-group inline-flex items-center gap-10 px-6"
+            aria-hidden="true"
+          >
+            <span>Kingdom Women And Youth Empowerment Foundation</span>
+            <span className="text-brand-gold-soft">•</span>
+            <span>Empowering communities through skills acquisition across Nigeria</span>
+            <span className="text-brand-gold-soft">•</span>
+            <span>Volunteer · Donate · Partner with us today</span>
+            <span className="text-brand-gold-soft">•</span>
+            <span>Jos South, Plateau State · info@kwayefoundation.org</span>
+            <span className="text-brand-gold-soft">•</span>
+          </span>
+        </div>
+      </div>
       <nav className="glass-nav border-b border-white/60">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="relative flex shrink-0 items-center gap-2">
             <Image
               src="/logo.png"
               alt="Kwaye Foundation"
-              width={140}
-              height={42}
-              className="h-9 w-auto object-contain"
+              width={100}
+              height={48}
+              className="h-12 w-auto rounded-md object-contain"
               priority
             />
           </Link>

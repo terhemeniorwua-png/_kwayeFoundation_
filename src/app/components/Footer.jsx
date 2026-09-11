@@ -74,23 +74,23 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-surface-line bg-white">
+    <footer className="bg-[#1a1f71]">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Image
               src="/logo.png"
               alt="Kwaye Foundation"
-              width={150}
-              height={44}
-              className="mb-4 h-10 w-auto object-contain"
+              width={110}
+              height={52}
+              className="mb-4 h-[52px] w-auto rounded-md object-contain"
             />
-            <p className="max-w-sm text-sm leading-relaxed text-muted">
+            <p className="max-w-sm text-sm leading-relaxed text-white/50">
               Kingdom Women And Youth Empowerment Foundation is dedicated to
               empowering communities through skills acquisition, sustainable
               development, and meaningful partnerships across Nigeria.
             </p>
-            <div className="mt-5 flex items-center gap-3">
+            <div className="mt-5 flex items-center gap-2.5">
               {socials.map(({ href, label, icon: Icon }) => (
                 <a
                   key={label}
@@ -98,7 +98,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-surface-line text-brand-green transition hover:border-brand-green hover:bg-brand-green hover:text-white"
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white/50 transition hover:bg-white/20 hover:text-white"
                 >
                   <Icon size={16} />
                 </a>
@@ -108,13 +108,15 @@ export default function Footer() {
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="mb-3 text-sm font-semibold text-ink">{col.title}</h3>
-              <ul className="space-y-2">
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/40">
+                {col.title}
+              </h3>
+              <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={`${col.title}-${link.label}`}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted transition hover:text-brand-green"
+                      className="text-sm text-white/60 transition hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -125,11 +127,12 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col gap-2 border-t border-surface-line pt-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Kwaye Foundation. All rights reserved.</p>
-          <p className="text-xs sm:text-sm">
-            Chris Giwa Shopping Complex, Bukuru Express, Jos South, Plateau
-            State
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-5 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-white/30">
+            © 2026 Kwaye Foundation. All rights reserved.
+          </p>
+          <p className="text-xs text-white/30">
+            Kingdom Women And Youth Empowerment Foundation
           </p>
         </div>
       </div>

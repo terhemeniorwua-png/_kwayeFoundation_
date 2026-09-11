@@ -6,8 +6,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const HERO_BACKGROUNDS = [
+  { src: "/bg2.png", alt: "Kwaye Foundation community gathering" },
+  { src: "/bg3.png", alt: "Kwaye Foundation field and outreach moments" },
+  { src: "/bg1.png", alt: "Kwaye Foundation women leaders and partners" },
+];
+
 export default function Hero() {
   const [videoOpen, setVideoOpen] = useState(false);
+  const [slide, setSlide] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSlide((prev) => (prev + 1) % HERO_BACKGROUNDS.length);
+    }, 5500);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     if (!videoOpen) return undefined;
@@ -25,19 +39,28 @@ export default function Hero() {
   return (
     <section className="relative isolate min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0">
-        <Image
-          src="/bg2.png"
-          alt="Kwaye Foundation community gathering"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 hero-atmosphere opacity-90 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/25 to-black/20" />
+        {HERO_BACKGROUNDS.map((bg, index) => (
+          <motion.div
+            key={bg.src}
+            className="absolute inset-0"
+            initial={false}
+            animate={{ opacity: slide === index ? 1 : 0 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            <Image
+              src={bg.src}
+              alt={bg.alt}
+              fill
+              priority={index === 0}
+              className="object-cover object-center"
+              sizes="100vw"
+            />
+          </motion.div>
+        ))}
+        <div className="absolute inset-0 z-[1] bg-black/50" />
       </div>
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-4 pb-24 pt-28 sm:px-6 lg:justify-center lg:px-8 lg:pb-20 lg:pt-24">
+      <div className="relative z-20 mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-4 pb-24 pt-32 sm:px-6 lg:justify-center lg:px-8 lg:pb-20 lg:pt-28">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,6 +103,22 @@ export default function Hero() {
             </button>
           </div>
         </motion.div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 gap-2">
+        {HERO_BACKGROUNDS.map((bg, index) => (
+          <button
+            key={bg.src}
+            type="button"
+            aria-label={`Slide ${index + 1}`}
+            onClick={() => setSlide(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              slide === index
+                ? "w-8 bg-white"
+                : "w-2 bg-white/40 hover:bg-white/60"
+            }`}
+          />
+        ))}
       </div>
 
       <AnimatePresence>

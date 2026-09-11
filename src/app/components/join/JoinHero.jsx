@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function JoinHero() {
   return (
-    <section className="relative isolate overflow-hidden pt-16">
+    <section className="relative isolate overflow-hidden pt-24">
       <div className="absolute inset-0">
         <Image
           src="/bg2.png"

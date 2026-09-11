@@ -91,3 +91,38 @@ h4 {
     opacity: 0.75;
   }
 }
+
+.floating-text-track {
+  width: max-content;
+  animation: floating-text-scroll 28s linear infinite;
+}
+
+.floating-text-group {
+  animation: floating-text-bob 3.2s ease-in-out infinite;
+}
+
+@keyframes floating-text-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes floating-text-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1.5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-text-track,
+  .floating-text-group {
+    animation: none;
+  }
+}
