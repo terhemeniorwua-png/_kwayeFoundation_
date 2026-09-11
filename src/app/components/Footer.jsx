@@ -56,17 +56,17 @@ const columns = [
 
 const socials = [
   {
-    href: "https://facebook.com",
+    href: "https://web.facebook.com/philip.iorwua.9",
     label: "Facebook",
     icon: FacebookIcon,
   },
   {
-    href: "https://twitter.com",
+    href: "https://x.com/PIorwua12080",
     label: "Twitter",
     icon: TwitterIcon,
   },
   {
-    href: "https://instagram.com",
+    href: "https://www.linkedin.com/feed/",
     label: "Instagram",
     icon: InstagramIcon,
   },
